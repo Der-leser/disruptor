@@ -26,6 +26,7 @@ public class Mian {
                 ProducerType.SINGLE,
                 new BusySpinWaitStrategy());
         //设置消费者
+        disruptor.handleEventsWith(new Handler1());
         //启动
         RingBuffer start = disruptor.start();
         CountDownLatch countDownLatch = new CountDownLatch(1);
